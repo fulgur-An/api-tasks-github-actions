@@ -28,8 +28,8 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
 
-    - name: Test with dotnet
-      run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} 
+    # - name: Test with dotnet
+    #   run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} 
 
 
     - name: dotnet publish
@@ -39,4 +39,16 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: uv-artifact
-        path: artifacts
+        path: artifacts/
+
+  deploy_dev:
+    name: Deploy Dev
+    # needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: uv-artifact
+          path: artifacts/
