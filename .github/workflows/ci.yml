@@ -33,4 +33,4 @@ jobs:
 
 
     - name: Build with dotnet
-      run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }} -o artifacts
+      run: dotnet publish --configuration ${{ env.BUILD_CONFIGURATION }} -o artifacts
