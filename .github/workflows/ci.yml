@@ -27,10 +27,8 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-
     # - name: Test with dotnet
     #   run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} 
-
 
     - name: dotnet publish
       run: dotnet publish src/TaskApi/TaskApi.csproj --configuration ${{ env.BUILD_CONFIGURATION }} -o artifacts
@@ -43,8 +41,8 @@ jobs:
 
   deploy_dev:
     name: Deploy Dev
-    # needs: build
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - name: Download artifact
