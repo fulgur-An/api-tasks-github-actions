@@ -50,3 +50,8 @@ jobs:
         with:
           name: uv-artifact
           path: artifacts/
+      - name: Deploy to Azure Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'app-api-uv-dev-antonio'
+          package: artifacts/
