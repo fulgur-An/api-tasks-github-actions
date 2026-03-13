@@ -45,7 +45,7 @@ jobs:
     uses: ./.github/workflows/stop-deploy.yml
     with:
       env: dev
-      secrets: inherit
+    secrets: inherit
 
   deploy_prod:
     name: Deploy Prod
@@ -53,4 +53,4 @@ jobs:
     uses: ./.github/workflows/stop-deploy.yml
     with:
       env: prod
-      secrets: inherit
+    secrets: inherit
